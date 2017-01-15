@@ -6,12 +6,7 @@
   <div class="new-recipe-container">
     {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire}}
 
-    {{> afQuickField name="name" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
-
-    {{> afQuickField name="description" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
-
-
-    <label>Questions</label>
+    <label><h1>Question No:x</h1></label>
 
     {{#afEachArrayItem name="questions"}}
       {{> afQuickField name=this.current.name template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
@@ -44,12 +39,12 @@
 
       <button class="btn btn-primary autoform-remove-item" data-autoform-field="items">Remove question</button>
 
-      <hr style="border-bottom:1px solid #000;">
     {{/afEachArrayItem}}
 
+    <br/>
     <button class="btn btn-primary autoform-add-item" data-autoform-field="questions">Add question</button>
 
-    <button type="submit">Submit</button>
+    <button type="submit" style="position: absolute; right: 0;">Next</button>
     {{/autoForm}}
   </div>
 </template>
