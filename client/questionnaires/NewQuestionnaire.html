@@ -1,6 +1,6 @@
 <template name="NewQuestionnaire">
   <div class="recipe">
-    <h3>New questionnaire</h3>
+    <h3>New study</h3>
 
     {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="insert" class="new-recipe-form"}}
 
@@ -13,7 +13,7 @@
       {{> afQuickField name="createdAt"}}
 
       <div>
-        <button type="submit">Add Questionnaire</button>
+       <button type="submit" style="position: absolute; right: 0;">Next</button>
       </div>
     {{/autoForm}}
 
