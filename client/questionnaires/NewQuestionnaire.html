@@ -1,23 +1,31 @@
 <template name="NewQuestionnaire">
-  <div class="recipe">
-    <h3>New study</h3>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-sm-2 sidenav" style="position: fixed; left: 0px;">
+                {{> SingleQuestionnaireNav}}
+                <span class="border-right-0"></span>
+            </div>
+            <div class="new-recipe-container">
+                <h3>New study</h3>
 
-    {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="insert" class="new-recipe-form"}}
+                {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="insert" class="new-recipe-form"}}
 
-      {{> afQuickField name="name"}}
+                    {{> afQuickField name="name"}}
 
-      {{> afQuickField name="description"}}
+                    {{> afQuickField name="description"}}
 
-      {{> afQuickField name="author"}}
+                    {{> afQuickField name="author"}}
 
-      {{> afQuickField name="createdAt"}}
+                    {{> afQuickField name="createdAt"}}
 
-      <div>
-          <button class="btn btn-default btn-md" style="position: fixed; right: 200px; bottom: 530px">Next</button>
-      </div>
-    {{/autoForm}}
+                    <div>
+                        <button class="btn btn-default btn-md" style="position: fixed; right: 200px; bottom: 530px">Next</button>
+                    </div>
+                {{/autoForm}}
 
 
-    <!-- {{> quickForm collection="Questionnaires" id="insertRecipeForm" type="insert" class="new-recipe-form"}} -->
-  </div>
+                <!-- {{> quickForm collection="Questionnaires" id="insertRecipeForm" type="insert" class="new-recipe-form"}} -->
+            </div>
+        </div>
+    </div>
 </template>
