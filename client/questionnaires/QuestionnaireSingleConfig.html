@@ -1,22 +1,25 @@
 <template name="QuestionnaireSingleConfig">
-  <h1>{{questionnaire.name}}</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-sm-2 sidenav" style="position: fixed; left: 0px;">
+                {{> SingleQuestionnaireNav}}
+                <span class="border-right-0"></span>
+            </div>
+            <div class="new-recipe-container">
+                <h2>Configuration</h2>
 
-  {{> SingleQuestionnaireNav}}
+                <h3>Questionnaire start and end date</h3>
+                <!-- {{> quickForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire class="new-recipe-form"}} -->
 
-  <div class="new-recipe-container">
-    <h2>Configuration</h2>
+                {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire}}
+                    {{> afQuickField name="configuration"}}
 
-    <h3>Questionnaire start and end date</h3>
-    <!-- {{> quickForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire class="new-recipe-form"}} -->
+                    <div>
+                        <button class="btn btn-default btn-md" type="submit">Submit</button>
+                    </div>
 
-    {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire}}
-      {{> afQuickField name="configuration"}}
-
-      <div>
-        <button class="btn btn-default btn-md" type="submit">Submit</button>
-      </div>
-
-    {{/autoForm}}
-
-  </div>
+                {{/autoForm}}
+            </div>
+        </div>
+    </div>
 </template>
