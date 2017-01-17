@@ -1,16 +1,19 @@
 <template name="QuestionnaireSingleExport">
-  <h1>{{questionnaire.name}}</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-sm-2 sidenav" style="position: fixed; left: 0px;">
+                {{> SingleQuestionnaireNav}}
+                <span class="border-right-0"></span>
+            </div>
+            <div class="new-recipe-container">
+                <h2>Export Questionnaire</h2>
 
-  {{> SingleQuestionnaireNav}}
+                <p>Test questionnaire in AWARE.</p>
 
-  <div>
-    <h2>Export Questionnaire</h2>
+                <button class="btn btn-default btn-md">Export to AWARE</button>
 
-    <p>Test questionnaire in AWARE.</p>
-
-    <button class="btn btn-default btn-md">Export to AWARE</button>
-
-    <div id="qrcode"></div>
-
-  </div>
+                <div id="qrcode"></div>
+            </div>
+        </div>
+    </div>
 </template>

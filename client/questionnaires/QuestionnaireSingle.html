@@ -8,7 +8,7 @@
             <div class="new-recipe-container">
                     {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire}}
 
-                        <label><h2>Question No: x</h2></label>
+                        <h2>Question No: x</h2>
 
                         {{#afEachArrayItem name="questions"}}
                             {{> afQuickField name=this.current.name template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
