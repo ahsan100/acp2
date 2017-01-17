@@ -1,51 +1,54 @@
 <template name="QuestionnaireSingleSensor">
-  <h1>{{questionnaire.name}}</h1>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-sm-2 sidenav" style="position: fixed; left: 0px;">
+                {{> SingleQuestionnaireNav}}
+                <span class="border-right-0"></span>
+            </div>
+            <div class="col-md-9">
+                <h2>Sensors</h2>
+                {{#autoForm collection="Questionnaires" type="update" doc=this id="FieldValueIsForm"}}
 
-  {{> SingleQuestionnaireNav}}
+                    {{#afEachArrayItem name="sensors"}}
+                        {{> afFieldInput name=this.current.sensorType}}
+                        {{> afFieldInput name=this.current.sensorActive}}
+                    {{/afEachArrayItem}}
 
-  <div class="new-recipe-container">
-    <h2>Sensor magic</h2>
+                    <!--
 
-    {{#autoForm collection="Questionnaires" type="update" doc=this id="FieldValueIsForm"}}
+                  {{> afQuickField name="GUCCI.$.sensorActive" noselect=true }}
 
-      {{#afEachArrayItem name="sensors"}}
-          {{> afFieldInput name=this.current.sensorType}}
-          {{> afFieldInput name=this.current.sensorActive}}
-      {{/afEachArrayItem}}
+                                    {{> afQuickField name="CHANEL" noselect=true }}
 
-<!--
+                                    {{> afQuickField name="GUCCI" noselect=true }}
 
-      {{> afQuickField name="GUCCI.$.sensorActive" noselect=true }}
+                                    {{#each sensors}}
 
-      {{> afQuickField name="CHANEL" noselect=true }}
-
-      {{> afQuickField name="GUCCI" noselect=true }}
-
-      {{#each sensors}}
-
-        <h3>{{this.type}}</h3>
-
-
-
-        {{#if afFieldValueIs name="sensorType" value="GUCCI"}}
-           {{> afQuickField name="shotsTaken"}}
-        {{/if}}
+                    <h3>{{this.type}}</h3>
 
 
-        {{> afQuickField name="sensors.$.sensorActive" noselect=true }}
 
-        {{#if afFieldValueIs type="CHANEL" value=true}}
-          {{> afQuickField name="sensors.$.frequency" value=this.frequency}}
-        {{/if}}
-      {{/each}}
+                    {{#if afFieldValueIs name="sensorType" value="GUCCI"}}
+                                        {{> afQuickField name="shotsTaken"}}
+                                    {{/if}}
 
-      {{#if afFieldValueIs name="sensors.$.sensorType" value="CHANEL"}}
-        {{> afQuickField name="frequency"}}
-      {{/if}}
+
+                            {{> afQuickField name="sensors.$.sensorActive" noselect=true }}
+
+                            {{#if afFieldValueIs type="CHANEL" value=true}}
+                                {{> afQuickField name="sensors.$.frequency" value=this.frequency}}
+                            {{/if}}
+                        {{/each}}
+
+                        {{#if afFieldValueIs name="sensors.$.sensorType" value="CHANEL"}}
+                            {{> afQuickField name="frequency"}}
+                        {{/if}}
 -->
-      <div>
-        <button class="btn btn-default btn-md" type="submit">Submit</button>
-      </div>
-    {{/autoForm}}
-  </div>
+                    <div>
+                        <button class="btn btn-default btn-md" type="submit">Submit</button>
+                    </div>
+                {{/autoForm}}
+            </div>
+        </div>
+    </div>
 </template>
