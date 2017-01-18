@@ -1,9 +1,8 @@
 <template name="NewQuestionnaire">
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="col-sm-2 sidenav" style="position: static; left: 0px;">
+            <div class="col-sm-2 sidenav">
                 {{> SingleQuestionnaireNav}}
-                <span class="border-right-0"></span>
             </div>
             <div class="new-recipe-container">
                 <h3>New study</h3>
@@ -19,7 +18,7 @@
                     {{> afQuickField name="createdAt"}}
 
                     <div>
-                        <button class="btn btn-default btn-md" style="position: static; right: 200px; bottom: 530px">Next</button>
+                        <button class="btn btn-default btn-md">Next</button>
                     </div>
                 {{/autoForm}}
 
