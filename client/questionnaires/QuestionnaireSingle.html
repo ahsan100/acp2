@@ -1,10 +1,10 @@
 <template name="QuestionnaireSingle">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-sm-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
                 {{> SingleQuestionnaireNav}}
             </div>
-            <div class="new-recipe-container">
+            <div class="col-sm-9">
                     {{#autoForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire}}
 
                         <h2>Question No: x</h2>
@@ -39,8 +39,9 @@
                             <br/>
 
                             <button class="btn btn-default autoform-remove-item" data-autoform-field="items">Remove question</button>
+                            <br/>
+                            <br/>
 
-                            <hr style="border-bottom:1px solid #000;">
                         {{/afEachArrayItem}}
 
                         <button class="btn btn-default autoform-add-item" data-autoform-field="questions">Add question</button>
