@@ -1,0 +1,37 @@
+<template name="StudyPanel">
+    <div class="page-header">
+        <h1>User Panel</h1>
+    </div>
+    <div class="row container">
+        <div class="col-sm-6">
+            <div class="row">
+                <!--<h1>Create a new study</h1>-->
+                <a href="/questionnaire-overview" class="btn btn-success" role="button">Add a new study</a>
+
+            </div>
+            <div class="row">
+                <p>This feels like a bad layout, yes?</p>
+                <p>Maybe redesign and just add this button to main menu bar or add more setting links to this page like change user info blehbleh?</p>
+                <p>[placeholder]</p>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h1>Current studies</h1>
+            <section class="questionnaires">
+                {{#if Template.subscriptionsReady}}
+                    <table class="table table-striped">
+                        <tbody>
+                        {{#each questionnaires}}
+                            <tr>
+                            {{> SingleQuestionnaire}}
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    <p>Loading</p>
+                {{/if}}
+            </section>
+        </div>
+    </div>
+</template>
