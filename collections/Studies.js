@@ -10,6 +10,15 @@ Studies.allow({
     return !!userId;
   }
 });
+ 
+ // For Checkbox, Radio & Quick Answer Options
+Option = new SimpleSchema({
+  option: {
+    type: String,
+    label: "Option",
+    optional: true
+  }
+});
 
 Question = new SimpleSchema({
 
@@ -63,10 +72,8 @@ Question = new SimpleSchema({
   	defaultValue: 0
   },
 
-  // Quick Answer
-  quickAnswer: {
-  	type: [String],
-  	label: "Quick Answer",
+  options: {
+  	type: [Option],
   	optional: true
   },
 
@@ -96,14 +103,21 @@ Question = new SimpleSchema({
     type: Number,
     label: "Maximum value",
     optional: true,
-    defaultValue: 0
+    defaultValue: 5
   },
 
   stepSize: {
   	type: Number,
   	label: "Step Size",
   	optional: true,
-  	defaultValue: 0
+  	defaultValue: 1
+  },
+
+  scaleStart:{
+    type: Number,
+    label: "Scale Start",
+    optional: true,
+    defaultValue: 0
   }
 
 });
