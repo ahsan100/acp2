@@ -6,7 +6,7 @@
         <div class="col-sm-6">
             <div class="row">
                 <!--<h1>Create a new study</h1>-->
-                <a href="/questionnaire-overview" class="btn btn-success" role="button">Add a new study</a>
+                <a href="/study-overview" class="btn btn-success" role="button">Add a new study</a>
 
             </div>
             <div class="row">
@@ -17,13 +17,13 @@
         </div>
         <div class="col-sm-6">
             <h1>Current studies</h1>
-            <section class="questionnaires">
+            <section class="studies">
                 {{#if Template.subscriptionsReady}}
                     <table class="table table-striped">
                         <tbody>
-                        {{#each questionnaires}}
+                        {{#each studies}}
                             <tr>
-                            {{> SingleQuestionnaire}}
+                            {{> singleStudy}}
                             </tr>
                         {{/each}}
                         </tbody>

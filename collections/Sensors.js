@@ -6,18 +6,10 @@ Sensors.allow({
   }
 });
 
-SensorSchema = new SimpleSchema({
-  type: {
-    type: String
-  },
-  active: {
-    type: Boolean,
-    defaultValue: false
-  },
-  frequency: {
-    type: Number,
-    label: "Frequency (in microsends)"
+Sensors.Schema = new SimpleSchema({
+  name: {
+    type: String,
+    label: "Sensor Name"
   }
 });
 
-Sensors.attachSchema(SensorSchema);

@@ -1,0 +1,30 @@
+<template name="newStudy">
+   <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                {{> SingleQuestionnaireNav}}
+            </div>
+            <div class="col-sm-9">
+            	<h3>New study</h3>
+
+                {{#autoForm collection="Studies" id="updateStudyId" type="insert" class="new-recipe-form"}}
+
+      				{{> afQuickField name="title"}}
+
+      				{{> afQuickField name="description"}}
+
+      				{{> afQuickField name="user_id"}}
+
+      				{{> afQuickField name="createdAt"}}
+
+                    <div>
+                        <button class="btn btn-default btn-md">Next</button>
+                    </div>
+                {{/autoForm}}
+
+                <!-- {{> quickForm collection="Questionnaires" id="insertRecipeForm" type="insert" class="new-recipe-form"}} -->
+            </div>
+        </div>
+    </div>
+</template>
+    
