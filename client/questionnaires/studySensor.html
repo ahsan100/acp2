@@ -1,11 +1,14 @@
 <template name="studySensor">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-sm-2 sidenav">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
                 {{> SingleQuestionnaireNav}}
             </div>
-            <div class="new-recipe-container">
-                <h2>Sensors</h2>
+            <div class="col-sm-9">
+                <div class="page-header">
+                    <h2>Sensors</h2>
+                </div>
+
                 {{#autoForm collection="Studies" type="update" doc=this id="FieldValueIsForm"}}
 
                     {{#afEachArrayItem name="sensor"}}
