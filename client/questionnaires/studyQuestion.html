@@ -68,16 +68,15 @@
                             {{/if}}
 
                             <br/>
-
-                            <button class="btn btn-default autoform-remove-item" data-autoform-field="items">Remove question</button>
+                            <button class="btn btn-primary btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
                             <br/>
                             <br/>
 
                         {{/afEachArrayItem}}
 
-                        <button class="btn btn-default autoform-add-item" data-autoform-field="questions">Add question</button>
+                        <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
 
-                        <button class="btn btn-default btn-md" type="submit">Next</button>
+                        <a href="/study/{{study._id}}/sensor" class="btn btn-primary btn-md" role="button">Next</a>
                     {{/autoForm}}
             </div>
         </div>

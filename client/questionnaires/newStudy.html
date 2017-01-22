@@ -1,10 +1,7 @@
 <template name="newStudy">
    <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                {{> SingleQuestionnaireNav}}
-            </div>
-            <div class="col-sm-9">
+            <div class="col-sm-12">
             	<h3>New study</h3>
 
                 {{#autoForm collection="Studies" id="updateStudyId" type="insert" class="col-sm-9"}}
@@ -18,7 +15,7 @@
       				{{> afQuickField name="createdAt"}}
 
                     <div>
-                        <button class="btn btn-default btn-md">Next</button>
+                        <button class="btn btn-primary btn-md">Next</button>
                     </div>
                 {{/autoForm}}
 
