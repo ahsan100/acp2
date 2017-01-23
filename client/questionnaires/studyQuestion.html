@@ -7,7 +7,8 @@
             <div class="col-sm-9">
                     {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
 
-                        <h2>Question No: x</h2>
+                        <br/>
+                        <br/>
 
                         {{#afEachArrayItem name="questions"}}
                             {{> afQuickField name=this.current.question template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
@@ -68,14 +69,14 @@
                             {{/if}}
 
                             <br/>
-                            <button class="btn btn-primary btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
+                            <button class="btn btn-default btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
                             <br/>
                             <br/>
 
                         {{/afEachArrayItem}}
 
-                        <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
-                        <button class="btn btn-primary btn-md pull-right" type="submit" >Next</button>
+                        <button class="btn btn-default btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
+                        <a class="btn btn-default btn-md pull-right" type="submit" href="/study/{{study._id}}/sensor">Next</a>
 
                     {{/autoForm}}
             </div>
