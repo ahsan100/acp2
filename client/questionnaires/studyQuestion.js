@@ -7,6 +7,12 @@ Template.studyQuestion.onCreated(function() {
   });
 });
 
+AutoForm.addHooks("updateQuestion",{
+    onSuccess: function(formType, result) {
+      FlowRouter.go("/study/:id/sensor",{id: FlowRouter.getParam('id')});
+    }
+});
+
 Template.studyQuestion.helpers({
   study: ()=> {
     var id = FlowRouter.getParam('id');
