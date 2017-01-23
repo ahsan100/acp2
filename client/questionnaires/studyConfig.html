@@ -1,23 +1,130 @@
 <template name="studyConfig">
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-sm-2 sidenav">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
                 {{> SingleQuestionnaireNav}}
             </div>
-            <div class="new-recipe-container">
-                <h2>Configuration</h2>
+            <div class="col-sm-9">
+                <div class="page-header">
+                    <h3>Study Configuration Overview</h3>
+                </div>
 
-                <h3>Questionnaire start and end date</h3>
-                <!-- {{> quickForm collection="Questionnaires" id="updateQuestionnaireId" type="update" doc=questionnaire class="new-recipe-form"}} -->
-
-                {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
-                    {{> afQuickField name="configuration"}}
-
-                    <div>
-                        <button class="btn btn-default btn-md" type="submit">Submit</button>
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Study</h4></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>Title</td>
+                                <td>{{study.title}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>{{study.description}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
 
-                {{/autoForm}}
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Questionnaire</h4></div>
+                    <div class="panel-body">
+                        {{#each study.questions}}
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Question #{{@index}}</th>
+                                    <th>{{this.question}}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Instructions</td>
+                                    <td>{{this.instructions}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Timeout</td>
+                                    <td>{{this.timeout}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>{{this.type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Submit text</td>
+                                    <td>{{this.submit}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Notification Timeout</td>
+                                    <td>{{this.notiTimeout}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Schedule</h4></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>Hours</td>
+                                <td>{{study.scheduler.[0].hours}}</td>
+                            </tr>
+                            <tr>
+                                <td>Weekdays</td>
+                                <td>{{study.scheduler.[0].weekdays}}</td>
+                            </tr>
+                            <tr>
+                                <td>Months</td>
+                                <td>{{study.scheduler.[0].months}}</td>
+                            </tr>
+                            <tr>
+                                <td>Weekdays</td>
+                                <td>{{study.scheduler.[0].interval}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Sensors</h4></div>
+                    <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Frequency (ms)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each study.sensor}}
+                                <tr>
+                                    <td>{{this.sensorType}}</td>
+                                    <td>{{this.frequency}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h4>Study Period</h4></div>
+                    <div class="panel-body">
+                        {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
+                            {{> afQuickField name="start_date"}}
+                            {{> afQuickField name="end_date"}}
+                            <div>
+                                <button class="btn btn-default btn-md" type="submit">Submit</button>
+                            </div>
+                        {{/autoForm}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

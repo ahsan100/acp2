@@ -1,12 +1,12 @@
 Template.StudyPanel.onCreated(function() {
   var self = this;
   self.autorun(function() {
-    self.subscribe('singleStudy')
+    self.subscribe('studies')
   });
 });
 
 Template.StudyPanel.helpers({
-  singleStudy: ()=> {
+  studies: ()=> {
     return Studies.find({});
   },
   updateQuestionnaireId: function() {
