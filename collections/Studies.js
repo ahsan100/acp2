@@ -143,22 +143,59 @@ Sensor = new SimpleSchema({
   	}
 });
 
-Scheduler = new SimpleSchema({
 
-	hour: {
+Schedule = new SimpleSchema({
+
+	hours: {
 		type: [Number],
-		label: "Hour",
-		optional: true
+		optional: true,
+    label: "Hour",
+    autoform: {
+      type: "select-multiple",
+          options: function () {
+            return [
+              {label: "00", value: 0},{label: "01", value: 1},{label: "02", value: 2},{label: "04", value: 4},
+              {label: "05", value: 5},{label: "06", value: 6},{label: "07", value: 7},{label: "08", value: 8},
+              {label: "09", value: 9},{label: "10", value: 10},{label: "11", value: 11},{label: "12", value: 12},
+              {label: "13", value: 13},{label: "14", value: 14},{label: "15", value: 15},{label: "16", value: 16},
+              {label: "17", value: 17},{label: "18", value: 18},{label: "19", value: 19},{label: "20", value: 20},
+              {label: "21", value: 21},{label: "22", value: 22},{label: "23", value: 23}
+            ];
+        }
+    }
 	},
-	weekday: {
-		type: [Number],
-		label: "Weekday",
-		optional: true
+
+	weekdays: {
+		type: [String],
+		optional: true,
+    label: "Weekday",
+    autoform: {
+      type: "select-multiple",
+          options: function () {
+            return [
+              {label: "Monday", value: "monday"},{label: "Tuesday", value: "tuesday"},{label: "Wednesday", value: "wednesday"},
+              {label: "Thursday", value: "thursday"},{label: "Friday", value: "friday"},
+              {label: "Saturday", value: "saturday"},{label: "Sunday", value: "sunday"}
+            ];
+        }
+    }
 	},
-	month: {
-		type: [Number],
-		label: "Month",
-		optional: true
+
+	months: {
+		type: [String],
+		optional: true,
+    label: "Month",
+     autoform: {
+      type: "select-multiple",
+          options: function () {
+            return [
+              {label: "January", value: "january"},{label: "February", value: "february"},{label: "March", value: "march"},
+              {label: "April", value: "april"},{label: "May", value: "may"},{label: "June", value: "june"},
+              {label: "July", value: "july"},{label: "August", value: "august"},{label: "September", value: "september"},
+              {label: "October", value: "october"},{label: "November", value: "november"},{label: "December", value: "december"}
+            ];
+        }
+    }
 	},
 	interval:{
 		type: Number,
@@ -208,8 +245,7 @@ Studies.attachSchema(new SimpleSchema({
   },
 
   scheduler: {
-  	type: [Scheduler],
-  	label: "scheduler",
+  	type: [Schedule],
   	optional: true
   },
 

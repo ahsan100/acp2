@@ -1,15 +1,23 @@
+try{
 Template.studySchedule.onCreated(function() {
   var self = this;
   self.autorun(function() {
-    self.subscribe('schedule')
+    var id = FlowRouter.getParam('id');
+    self.subscribe('singleStudy', id);
   });
 });
 
 Template.studySchedule.helpers({
-  schedule: ()=> {
-    return study.find({});
+  study: ()=> {
+    var id = FlowRouter.getParam('id');
+    return Studies.findOne({_id: id});
   },
-  updateQuestionnaireId: function() {
-    return this._id;
+  updateStudyId: function() {
+    var id = FlowRouter.getParam('id');
+    return Studies.findOne({_id: id});
   }
 });
+}
+catch (err){
+  console.log(err);
+}

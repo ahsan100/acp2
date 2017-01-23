@@ -3,7 +3,7 @@ Template.studyQuestion.onCreated(function() {
   var self = this;
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
-    self.subscribe('study', id);
+    self.subscribe('singleStudy', id);
   });
 });
 

@@ -1,21 +1,58 @@
 <template name="studySchedule">
-    <div class="page-header">
-        <h1>Schedule</h1>
-    </div>
-    <div class="row">
-        <p>Autoform should replace this placeholder view once DB is done?...</p>
-    </div>
-    <div class="row">
-        <div class="radio">
-            <label><input type="radio" name="optradio">Fixed</label>
-        </div>
-        <div>
-            <p>Hour</p>
-            <p>Week</p>
-            <p>Month</p>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio">Random</label>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                {{> SingleQuestionnaireNav}}
+            </div>
+            <div class="col-sm-9">
+                <div class="page-header">
+                        <h2>Scheduler</h2>
+                </div>
+
+                {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
+
+                {{#afEachArrayItem name="scheduler"}}
+
+                <h3>Hour</h3>
+
+                {{> afQuickField name=this.current.hours template="bootstrap3-horizontal" label-class="col-sm-5" input-col-class="col-sm-7"}}
+
+
+                <br/>
+                <br/>
+                <br/>
+                
+                <h3>Weekday</h3>
+
+                {{> afQuickField name=this.current.weekdays template="bootstrap3-horizontal" label-class="col-sm-5" input-col-class="col-sm-7"}}
+
+
+                <br/>
+                <br/>
+                <br/>
+
+                <h3>Month</h3>
+
+                {{> afQuickField name=this.current.months template="bootstrap3-horizontal" label-class="col-sm-5" input-col-class="col-sm-7"}}
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                {{> afQuickField name=this.current.interval template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+
+                <br/>
+                <br/>
+
+                <div>
+                        <button class="btn btn-default btn-md" type="submit">Next</button>
+                </div>
+                {{/afEachArrayItem}}
+                {{/autoForm}}
+            </div>
         </div>
     </div>
 </template>
