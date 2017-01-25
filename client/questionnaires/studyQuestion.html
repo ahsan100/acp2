@@ -17,12 +17,6 @@
 
                             {{> afQuickField name=this.current.timeout template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
 
-                            <!--
-                  <label class="help">Question</label>{{> afFieldInput name=this.current.name}}
-                  <label class="help">Question instruction</label>{{> afFieldInput name=this.current.instructions}}
-                  <label class="help">Question timeout</label>{{> afFieldInput name=this.current.timeout}}
-                   -->
-
                             {{> afQuickField name=this.current.type template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
 
                             {{#if afFieldValueIs name=this.current.type value="Free Text"}}
@@ -68,16 +62,19 @@
                                 {{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                             {{/if}}
 
-                            <br/>
-                            <button class="btn btn-default btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
-                            <br/>
-                            <br/>
-
                         {{/afEachArrayItem}}
 
-                        <button class="btn btn-default btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
-                        <!--<a class="btn btn-default btn-md pull-right" type="submit" href="/study/{{study._id}}/sensor">Next</a>-->
-                        <button class="btn btn-primary btn-md pull-right" type="submit" >Next</button>
+                        <div class="btn-toolbar mb-3" role="toolbar">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button class="btn btn-primary btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
+                            </div>
+                        </div>
+                        <br/>
+                        <div>
+                            <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
+                            <!--<a class="btn btn-default btn-md pull-right" type="submit" href="/study/{{study._id}}/sensor">Next</a>-->
+                            <button class="btn btn-primary btn-md pull-right" type="submit" >Next</button>
+                        </div>
 
                     {{/autoForm}}
             </div>
