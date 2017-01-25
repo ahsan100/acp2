@@ -2,21 +2,32 @@
     <div class="page-header">
         <h1>User Panel</h1>
     </div>
-    <div class="row container">
-        <div class="col-sm-6">
-            <div class="row">
-                <!--<h1>Create a new study</h1>-->
-                <a href="/study-overview" class="btn btn-success" role="button">Add a new study</a>
+    <div class="container">
+        <div class="row">
+            <!--<h1>Create a new study</h1>-->
+            <a href="/study-overview" class="btn btn-success" role="button">Create a new study</a>
 
-            </div>
-            <div class="row">
-                <p>This feels like a bad layout, yes?</p>
-                <p>Maybe redesign and just add this button to main menu bar or add more setting links to this page like change user info blehbleh?</p>
-                <p>[placeholder]</p>
-            </div>
         </div>
         <div class="col-sm-6">
-            <h1>Current studies</h1>
+            <h1>Recent studies</h1>
+            <section class="studies">
+                {{#if Template.subscriptionsReady}}
+                    <table class="table table-striped">
+                        <tbody>
+                        {{#each studies}}
+                            <tr>
+                                {{> singleStudy}}
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    <p>Loading</p>
+                {{/if}}
+            </section>
+        </div>
+        <div class="col-sm-6">
+            <h1>Unfinished studies</h1>
             <section class="studies">
                 {{#if Template.subscriptionsReady}}
                     <table class="table table-striped">

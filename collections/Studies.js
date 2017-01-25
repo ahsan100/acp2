@@ -124,25 +124,28 @@ Question = new SimpleSchema({
 
 Sensor = new SimpleSchema({
 	sensorType: {
-    	type: String
-  	},
-  	sensorActive: {
-   		type: Boolean,
-    	label: "Do you want to enable this option?",
-    	autoform:{
-        	type: "boolean-radios",
-        	trueLabel: "Enabled",
-        	falseLabel: "Disabled",
-        	value: false
-    	}
-  	},
-  	frequency: {
-    	type: Number,
-    	label: "Frequency (in microsends)",
-    	optional: true
-  	}
+    type: String,
+    allowedValues: ["Accelerometer", "Light", "Gravity", "Barometer"],
+    autoform: {
+      type: "hidden"
+    }
+  },
+  sensorActive: {
+    type: Boolean,
+    label: "Do you want to enable this option?",
+    autoform:{
+        type: "boolean-radios",
+        trueLabel: "Enabled",
+        falseLabel: "Disabled",
+        defaultValue: false
+    }
+  },
+  frequency: {
+    type: Number,
+    label: "Frequency (in microsends)",
+    optional: true
+  }
 });
-
 
 Schedule = new SimpleSchema({
 
