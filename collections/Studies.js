@@ -80,72 +80,59 @@ Question = new SimpleSchema({
   //Scale
   minValue: {
     type: Number,
-    label: "Minimum value",
-    optional: true,
-    defaultValue: 0
+    label: "Minimum value"
   },
 
   // Likeart Scale can also use same Max Value and Step Size
 
   maxLabel: {
   	type: String,
-    label: "Maximum Label",
-    optional: true
+    label: "Maximum Label"
   },
 
   minLabel: {
   	type: String,
-    label: "Minimum Label",
-    optional: true
+    label: "Minimum Label"
   },
 
   maxValue: {
     type: Number,
-    label: "Maximum value",
-    optional: true,
-    defaultValue: 5
+    label: "Maximum value"
   },
 
   stepSize: {
   	type: Number,
-  	label: "Step Size",
-  	optional: true,
-  	defaultValue: 1
+  	label: "Step Size"
   },
 
   scaleStart:{
     type: Number,
-    label: "Scale Start",
-    optional: true,
-    defaultValue: 0
+    label: "Scale Start"
   }
 
 });
 
 Sensor = new SimpleSchema({
 	sensorType: {
-    type: String,
-    allowedValues: ["Accelerometer", "Light", "Gravity", "Barometer"],
-    autoform: {
-      type: "hidden"
-    }
-  },
-  sensorActive: {
-    type: Boolean,
-    label: "Do you want to enable this option?",
-    autoform:{
-        type: "boolean-radios",
-        trueLabel: "Enabled",
-        falseLabel: "Disabled",
-        defaultValue: false
-    }
-  },
-  frequency: {
-    type: Number,
-    label: "Frequency (in microsends)",
-    optional: true
-  }
+    	type: String
+  	},
+  	sensorActive: {
+   		type: Boolean,
+    	label: "Do you want to enable this option?",
+    	autoform:{
+        	type: "boolean-radios",
+        	trueLabel: "Enabled",
+        	falseLabel: "Disabled",
+        	value: false
+    	}
+  	},
+  	frequency: {
+    	type: Number,
+    	label: "Frequency (in microsends)",
+    	optional: true
+  	}
 });
+
 
 Schedule = new SimpleSchema({
 
@@ -255,12 +242,18 @@ Studies.attachSchema(new SimpleSchema({
   start_date: {
   	type: Date,
   	label: "Start_date",
-  	optional: true
+  	optional: true,
+    autoform: {
+        type: "bootstrap-datepicker"
+      }
   },
   end_date: {
   	type: Date,
   	label: "End_date",
-  	optional: true
+  	optional: true,
+    autoform: {
+        type: "bootstrap-datepicker"
+      }
   },
 
    createdAt: {
