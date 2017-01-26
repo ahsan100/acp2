@@ -13,6 +13,26 @@ AutoForm.addHooks("updateQuestion",{
     }
 });
 
+Template.registerHelper("likeartMinOptions", function() {
+    return {
+      0: "0"
+    };
+});
+
+Template.registerHelper("likeartMaxOptions", function() {
+    return {
+      5: "5",
+      7: "7"
+    };
+});
+
+Template.registerHelper("likeartStepOptions", function() {
+    return {
+      0.5: "0.5",
+      1: "1"
+    };
+});
+
 Template.studyQuestion.helpers({
   study: ()=> {
     var id = FlowRouter.getParam('id');

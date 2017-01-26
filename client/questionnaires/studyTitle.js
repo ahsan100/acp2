@@ -1,5 +1,5 @@
 try{
-Template.studySchedule.onCreated(function() {
+Template.studyTitle.onCreated(function() {
   var self = this;
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
@@ -7,13 +7,13 @@ Template.studySchedule.onCreated(function() {
   });
 });
 
-AutoForm.addHooks("updateSchedule",{
+AutoForm.addHooks("updateTitle",{
     onSuccess: function(formType, result) {
-      FlowRouter.go("/study/:id/configuration",{id: FlowRouter.getParam('id')});
+      FlowRouter.go("/study/:id/questions",{id: FlowRouter.getParam('id')});
     }
 });
 
-Template.studySchedule.helpers({
+Template.studyTitle.helpers({
   study: ()=> {
     var id = FlowRouter.getParam('id');
     return Studies.findOne({_id: id});

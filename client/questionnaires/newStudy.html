@@ -6,13 +6,23 @@
 
                 {{#autoForm collection="Studies" id="updateStudyId" type="insert" class="col-sm-9"}}
 
-      				{{> afQuickField name="title"}}
+            				{{> afQuickField name="title"}}
 
-      				{{> afQuickField name="description"}}
+            				{{> afQuickField name="description"}}
 
-      				{{> afQuickField name="user_id"}}
+            				{{> afQuickField name="user_id"}}
 
-      				{{> afQuickField name="createdAt"}}
+            				{{> afQuickField name="createdAt"}}
+
+                    <div class="panel panel-primary">
+                          <div class="panel-heading"><h4>Study Period</h4></div>
+                          <div class="panel-body">
+                          
+                                  {{> afQuickField name="start_date"}}
+                                  {{> afQuickField name="end_date"}}
+                                  
+                          </div>
+                    </div>
 
                     <div>
                         <button class="btn btn-primary btn-md pull-right">Next</button>

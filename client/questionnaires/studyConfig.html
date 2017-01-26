@@ -22,6 +22,14 @@
                                 <td>Description</td>
                                 <td>{{study.description}}</td>
                             </tr>
+                            <tr>
+                                <td>Start Date</td>
+                                <td>{{study.start_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>End Date</td>
+                                <td>{{study.end_date}}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -112,19 +120,10 @@
                     </table>
                     </div>
                 </div>
-
-                <div class="panel panel-primary">
-                    <div class="panel-heading"><h4>Study Period</h4></div>
-                    <div class="panel-body">
-                        {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
-                            {{> afQuickField name="start_date"}}
-                            {{> afQuickField name="end_date"}}
                             <div>
-                                <button class="btn btn-default btn-md" type="submit">Submit</button>
+                                <a href="/study/{{study._id}}/export" class="btn btn-default btn-md" type="button">Submit</a>
                             </div>
-                        {{/autoForm}}
-                    </div>
-                </div>
+    
             </div>
         </div>
     </div>

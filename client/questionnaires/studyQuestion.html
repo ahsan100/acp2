@@ -59,16 +59,33 @@
                                 {{> afQuickField name=this.current.minLabel template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{> afQuickField name=this.current.maxLabel template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{> afQuickField name=this.current.stepSize template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+                                {{> afQuickField name=this.current.scaleStart template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                             {{/if}}
 
-                        {{/afEachArrayItem}}
+
+                            {{#if afFieldValueIs name=this.current.type value="Likeart Scale"}}
+                                {{> afQuickField name=this.current.minValue type="select-radio-inline" options=likeartMinOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.maxValue type="select-radio-inline" options=likeartMaxOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.minLabel template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.maxLabel template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.stepSize type="select-radio-inline" options=likeartStepOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.scaleStart type="select-radio-inline" options=likeartMinOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+
+                                {{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
+                            {{/if}}
 
                         <div class="btn-toolbar mb-3" role="toolbar">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                 <button class="btn btn-primary btn-md autoform-remove-item" data-autoform-field="items">Remove question</button>
                             </div>
                         </div>
+                        {{/afEachArrayItem}}
                         <br/>
                         <div>
                             <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
