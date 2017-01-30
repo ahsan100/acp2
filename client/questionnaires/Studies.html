@@ -1,12 +1,3 @@
 <template name="Studies">
-  <section class="studies">
-    {{#if Template.subscriptionsReady}}
-      {{#each studies}}
-        {{> singleStudy}}
-      {{/each}}
-    {{else}}
-      <p>Loading</p>
-    {{/if}}
-  </section>
   {{> newStudy}}
 </template>
