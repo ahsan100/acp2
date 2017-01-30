@@ -1,4 +1,4 @@
-<template name="singleStudy">
+<template name="singleStudy" xmlns="http://www.w3.org/1999/html">
   <article class="recipe">
     <h3>{{title}}</h3>
     <p>{{description}}</p>
@@ -10,8 +10,8 @@
         <span class="ingredient">{{name}} - {{type}}</span>
       {{/each}}
     </p> -->
-    <a href="/study/{{_id}}/questions">View Details</a>
+      <a class="btn btn-primary" href="/study/{{_id}}/questions">View Details</a>
 
-    <i class="fa fa-trash"></i>
+      <button class="btn btn-danger btn-md autoform-remove-item" data-autoform-field="items">Remove study</button>
   </article>
 </template>
