@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-9">
                 <div class="page-header">
-                    <h3>Study Configuration Overview</h3>
+                    <h3>Study Overview</h3>
                 </div>
 
                 <div class="panel panel-info">
@@ -40,33 +40,38 @@
                     <div class="panel-body">
                         {{#each study.questions}}
                             <table class="table">
+                                <h3>Question #{{@index}}</h3>
                                 <thead>
-                                <tr>
-                                    <th>Question #{{@index}}</th>
-                                    <th>{{this.question}}</th>
-                                </tr>
+                                    <tr>
+                                        <th>Label</th>
+                                        <th>Value</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Instructions</td>
-                                    <td>{{this.instructions}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Timeout</td>
-                                    <td>{{this.timeout}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Type</td>
-                                    <td>{{this.type}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Submit text</td>
-                                    <td>{{this.submit}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Notification Timeout</td>
-                                    <td>{{this.notiTimeout}}</td>
-                                </tr>
+                                    <tr>
+                                        <th>Question</th>
+                                        <th>{{this.question}}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Instructions</td>
+                                        <td>{{this.instructions}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Timeout</td>
+                                        <td>{{this.timeout}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td>{{this.type}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Submit text</td>
+                                        <td>{{this.submit}}</td>
+                                    </tr>
+                                    <!--<tr>-->
+                                        <!--<td>Notification Timeout</td>-->
+                                        <!--<td>{{this.notiTimeout}}</td>-->
+                                    <!--</tr>-->
                                 </tbody>
                             </table>
                         {{/each}}
@@ -77,23 +82,29 @@
                     <div class="panel-heading"><h4>Schedule</h4></div>
                     <div class="panel-body">
                         <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Values</th>
+                                </tr>
+                            </thead>
                             <tbody>
-                            <tr>
-                                <td>Hours</td>
-                                <td>{{study.scheduler.[0].hours}}</td>
-                            </tr>
-                            <tr>
-                                <td>Weekdays</td>
-                                <td>{{study.scheduler.[0].weekdays}}</td>
-                            </tr>
-                            <tr>
-                                <td>Months</td>
-                                <td>{{study.scheduler.[0].months}}</td>
-                            </tr>
-                            <tr>
-                                <td>Weekdays</td>
-                                <td>{{study.scheduler.[0].interval}}</td>
-                            </tr>
+                                <tr>
+                                    <td>Hours</td>
+                                    <td>{{study.scheduler.[0].hours}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Weekdays</td>
+                                    <td>{{study.scheduler.[0].weekdays}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Months</td>
+                                    <td>{{study.scheduler.[0].months}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Interval</td>
+                                    <td>{{study.scheduler.[0].interval}}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -111,18 +122,21 @@
                         </thead>
                         <tbody>
                             {{#each study.sensor}}
-                                <tr>
-                                    <td>{{this.sensorType}}</td>
-                                    <td>{{this.frequency}}</td>
-                                </tr>
+                                {{#if this.sensorActive}}
+                                    <tr>
+                                        <td>{{this.sensorType}}</td>
+                                        <td>{{this.frequency}}</td>
+                                    </tr>
+                                {{/if}}
                             {{/each}}
                         </tbody>
                     </table>
                     </div>
                 </div>
-                            <div>
-                                <a href="/study/{{study._id}}/export" class="btn btn-primary btn-md pull-right" type="button">Submit</a>
-                            </div>
+
+                <div>
+                    <a href="/study/{{study._id}}/export" class="btn btn-primary btn-md pull-right" type="button">Submit</a>
+                </div>
     
             </div>
         </div>

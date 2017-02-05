@@ -113,28 +113,28 @@ Question = new SimpleSchema({
 });
 
 Sensor = new SimpleSchema({
-	sensorType: {
-    	    type: String,
-     allowedValues: ["Accelerometer", "Light", "Gravity", "Barometer"],
-     autoform: {
-       type: "hidden"
-     }
-   },
-   sensorActive: {
-     type: Boolean,
-     label: "Do you want to enable this option?",
-     autoform:{
-         type: "boolean-radios",
-         trueLabel: "Enabled",
-         falseLabel: "Disabled",
-         defaultValue: false
-     }
-   },
-   frequency: {
-     type: Number,
-     label: "Frequency (in microsends)",
-     optional: true
-}
+  sensorType: {
+    type: String,
+    allowedValues: ["Accelerometer", "Barometer",  "Gravity", "Gyroscope", "Light", "Location", "Magnetometer", "Temperature"],
+    autoform: {
+      type: "hidden"
+    }
+  },
+  sensorActive: {
+    type: Boolean,
+    label: "Do you want to enable this option?",
+    autoform:{
+      type: "boolean-radios",
+      trueLabel: "Enabled",
+      falseLabel: "Disabled",
+      defaultValue: false
+    }
+  },
+  frequency: {
+    type: Number,
+    label: "Frequency (in microsends)",
+    optional: true
+  }
 });
 
 
@@ -259,8 +259,7 @@ Studies.attachSchema(new SimpleSchema({
         type: "bootstrap-datepicker"
       }
   },
-
-   createdAt: {
+  createdAt: {
     type: Date,
     label: "Created at",
     autoValue: function() {
@@ -269,7 +268,15 @@ Studies.attachSchema(new SimpleSchema({
     autoform: {
       type: "hidden"
     }
-}
+  },
+  exported: {
+    type: Boolean,
+    label: "Exported",
+    defaultValue: false,
+    autoform: {
+      type: "hidden"
+    }
+  }
 }));
 
 Meteor.methods({

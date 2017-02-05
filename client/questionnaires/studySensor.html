@@ -19,8 +19,8 @@
                             {{/if}}
                         </div>
                         <div class="col-sm-4">
-                            {{> afQuickField name="sensor.1.sensorType" value="Light"}}
-                            <h3>Light</h3> {{> afQuickField name="sensor.1.sensorActive" options="allowed" noselect=true}}
+                            {{> afQuickField name="sensor.1.sensorType" value="Barometer"}}
+                            <h3>Barometer</h3> {{> afQuickField name="sensor.1.sensorActive" options="allowed" noselect=true}}
                             {{#if afFieldValueIs name="sensor.1.sensorActive" value=true}}
                                 {{> afQuickField name="sensor.1.frequency"}}
                             {{/if}}
@@ -35,35 +35,32 @@
                             {{/if}}
                         </div>
                         <div class="col-sm-4">
-                            {{> afQuickField name="sensor.3.sensorType" value="Barometer"}}
-                            <h3>Barometer</h3> {{> afQuickField name="sensor.3.sensorActive" options="allowed" noselect=true}}
+                            {{> afQuickField name="sensor.3.sensorType" value="Gyroscope"}}
+                            <h3>Gyroscope</h3> {{> afQuickField name="sensor.3.sensorActive" options="allowed" noselect=true}}
                             {{#if afFieldValueIs name="sensor.3.sensorActive" value=true}}
                                 {{> afQuickField name="sensor.3.frequency"}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="row container">
+                        <div class="col-sm-4">
+                            {{> afQuickField name="sensor.4.sensorType" value="Light"}}
+                            <h3>Light</h3> {{> afQuickField name="sensor.4.sensorActive" options="allowed" noselect=true}}
+                            {{#if afFieldValueIs name="sensor.4.sensorActive" value=true}}
+                                {{> afQuickField name="sensor.4.frequency"}}
+                            {{/if}}
+                        </div>
+                        <div class="col-sm-4">
+                            {{> afQuickField name="sensor.5.sensorType" value="Location"}}
+                            <h3>Location</h3> {{> afQuickField name="sensor.5.sensorActive" options="allowed" noselect=true}}
+                            {{#if afFieldValueIs name="sensor.5.sensorActive" value=true}}
+                                {{> afQuickField name="sensor.5.frequency"}}
                             {{/if}}
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-md pull-right">Next</button>
                 {{/autoForm}}
-
-<!--
-                {{#autoForm collection="Studies" id="updateStudyId" type="update" doc=study}}
-                    <div class="form-group">
-                        {{> afQuickField name="sensors.$.accelerometer" options="allowed" noselect=true}}
-                        {{#if afFieldValueIs name="sensors.$.accelerometer" value="Enabled"}}
-                            {{> afQuickField name="sensors.$.accelerometerFreq"}}
-                        {{/if}}
-                        {{> afQuickField name="sensors.$.light" options="allowed" noselect=true}}
-                        {{#if afFieldValueIs name="sensors.$.light" value="Enabled"}}
-                            {{> afQuickField name="sensors.$.lightFreq"}}
-                        {{/if}}
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                {{/autoForm}}
--->
             </div>
         </div>
     </div>
