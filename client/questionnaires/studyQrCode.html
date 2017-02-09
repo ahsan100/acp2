@@ -1,18 +1,19 @@
 <template name="studyQrCode">
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="col-sm-2 sidenav">
+            <div class="col-sm-3 sidenav">
                 {{> SingleQuestionnaireNav}}
             </div>
-            <div class="new-recipe-container">
-                <h2>Export Questionnaire</h2>
+            <div class="col-sm-9">
+                <div class="new-recipe-container">
+                    <h2>Export Questionnaire</h2>
 
-                <p>Test questionnaire in AWARE.</p>
+                    <p>Test questionnaire in AWARE.</p>
 
+                    <div id="qrcode"></div>
 
-                <button class="btn btn-default btn-md">Export to AWARE</button>
-
-                <div id="qrcode"></div>
+                    <button class="btn btn-primary btn-md pull-left">Export to AWARE</button>
+                </div>
             </div>
         </div>
     </div>
