@@ -19,24 +19,15 @@
 
                             {{> afQuickField name=this.current.type template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
 
-                            {{#if afFieldValueIs name=this.current.type value="Free Text"}}
+                            {{#if afFieldValueIs name=this.current.type value=1}}
                             	{{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                             {{/if}}
 
-                            {{#if afFieldValueIs name=this.current.type value="Numeric"}}
+                            {{#if afFieldValueIs name=this.current.type value=7}}
                             	{{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                             {{/if}}
 
-                            {{#if afFieldValueIs name=this.current.type value="Radio"}}
-                            	{{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
-                                {{#afEachArrayItem name=this.current.options}}
-                                    {{> afQuickField name=this.current.option template="bootstrap3-horizontal" label-class="col-sm-2 col-sm-offset-3" input-col-class="col-sm-6"}}
-                                    <button class="btn btn-primary autoform-remove-item" data-autoform-field="items">x</button>
-                                {{/afEachArrayItem}}
-                                <button class="btn btn-primary autoform-add-item col-sm-offset-5 col-sm-7" data-autoform-field="{{this.current.options}}">Add option</button>
-                            {{/if}}
-
-                            {{#if afFieldValueIs name=this.current.type value="Checkbox"}}
+                            {{#if afFieldValueIs name=this.current.type value=2}}
                             	{{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{#afEachArrayItem name=this.current.options}}
                                     {{> afQuickField name=this.current.option template="bootstrap3-horizontal" label-class="col-sm-2 col-sm-offset-3" input-col-class="col-sm-6"}}
@@ -45,7 +36,8 @@
                                 <button class="btn btn-primary autoform-add-item col-sm-offset-5 col-sm-7" data-autoform-field="{{this.current.options}}">Add option</button>
                             {{/if}}
 
-                          	{{#if afFieldValueIs name=this.current.type value="Quick Answer"}}
+                            {{#if afFieldValueIs name=this.current.type value=3}}
+                            	{{> afQuickField name=this.current.submit template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{#afEachArrayItem name=this.current.options}}
                                     {{> afQuickField name=this.current.option template="bootstrap3-horizontal" label-class="col-sm-2 col-sm-offset-3" input-col-class="col-sm-6"}}
                                     <button class="btn btn-primary autoform-remove-item" data-autoform-field="items">x</button>
@@ -53,7 +45,15 @@
                                 <button class="btn btn-primary autoform-add-item col-sm-offset-5 col-sm-7" data-autoform-field="{{this.current.options}}">Add option</button>
                             {{/if}}
 
-                            {{#if afFieldValueIs name=this.current.type value="Scale"}}
+                          	{{#if afFieldValueIs name=this.current.type value=5}}
+                                {{#afEachArrayItem name=this.current.options}}
+                                    {{> afQuickField name=this.current.option template="bootstrap3-horizontal" label-class="col-sm-2 col-sm-offset-3" input-col-class="col-sm-6"}}
+                                    <button class="btn btn-primary autoform-remove-item" data-autoform-field="items">x</button>
+                                {{/afEachArrayItem}}
+                                <button class="btn btn-primary autoform-add-item col-sm-offset-5 col-sm-7" data-autoform-field="{{this.current.options}}">Add option</button>
+                            {{/if}}
+
+                            {{#if afFieldValueIs name=this.current.type value=6}}
                                 {{> afQuickField name=this.current.minValue template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{> afQuickField name=this.current.maxValue template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
                                 {{> afQuickField name=this.current.minLabel template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
@@ -64,7 +64,7 @@
                             {{/if}}
 
 
-                            {{#if afFieldValueIs name=this.current.type value="Likeart Scale"}}
+                            {{#if afFieldValueIs name=this.current.type value=4}}
                                 {{> afQuickField name=this.current.minValue type="select-radio-inline" options=likeartMinOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}
 
                                 {{> afQuickField name=this.current.maxValue type="select-radio-inline" options=likeartMaxOptions template="bootstrap3-horizontal" label-class="col-sm-4 col-sm-offset-3" input-col-class="col-sm-5"}}

@@ -7,7 +7,10 @@ Template.studyQrCode.onCreated(function() {
 });
 
 Template.studyQrCode.onRendered(function() {
-  $('#qrcode').qrcode({text: 'http://www.google.com'});
+  var host = 'http://192.168.173.1:3000';
+  var id = FlowRouter.getParam('id');
+  var route = '/study/'+ id + '/json';
+  $('#qrcode').qrcode({text: host+route});
 })
 
 Template.studyQrCode.helpers({
