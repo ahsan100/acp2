@@ -286,6 +286,7 @@ Studies.attachSchema(new SimpleSchema({
   sensorCheck: {
     type: Boolean,
     label:"Do you want to enable the Sensors?",
+	optional: true,
     autoform:{
       type: "boolean-radios",
       trueLabel: "Enabled",
@@ -342,6 +343,7 @@ Studies.attachSchema(new SimpleSchema({
   exported: {
     type: Boolean,
     label: "Exported",
+	  optional: true,
     defaultValue: false,
     autoform: {
       type: "hidden"
