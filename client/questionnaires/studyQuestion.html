@@ -10,8 +10,8 @@
                 </div>
 
                 {{#autoForm collection="Studies" id="updateQuestion" type="update" doc=study}}
-                    <br/>
-                    <br/>
+                    <br>
+                    <br>
                     {{> afQuickField name="questionCheck" noselect=true}}
 
                     {{#if afFieldValueIs name="questionCheck" value=true}}
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     {{/afEachArrayItem}}
-                    <br/>
+                    <br>
 
                     <div>
                         <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
