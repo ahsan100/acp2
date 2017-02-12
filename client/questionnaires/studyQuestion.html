@@ -12,10 +12,6 @@
                 {{#autoForm collection="Studies" id="updateQuestion" type="update" doc=study}}
                     <br>
                     <br>
-                    {{> afQuickField name="questionCheck" noselect=true}}
-
-                    {{#if afFieldValueIs name="questionCheck" value=true}}
-
                     {{#afEachArrayItem name="questions"}}
                         {{> afQuickField name=this.current.question template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9" placeholder="Title of the ESM Question "}}
 
@@ -97,7 +93,7 @@
                     <div>
                         <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="questions">Add question</button>
                     </div>
-                    {{/if}}
+
                     <div>
                         <button class="btn btn-primary btn-md pull-right" type="submit" >Next</button>
                     </div>
