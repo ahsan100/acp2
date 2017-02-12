@@ -13,6 +13,15 @@
 
                 {{#afEachArrayItem name="scheduler"}}
 
+                <h3>Select Questions for this Schedule</h3>
+
+                {{> afQuickField name=this.current.questionSchedule type ="select-checkbox-inline" template="bootstrap3-horizontal" input-col-class="col-sm-12" options=questionsCheckbox}}
+
+                <h3>Select schedule method</h3>
+
+                {{> afQuickField name=this.current.scheduleCheck}}
+                
+                {{#if afFieldValueIs name=this.current.scheduleCheck value="time"}}
                 <h3>Hour</h3>
 
                 {{> afQuickField name=this.current.hours template="bootstrap3-horizontal" input-col-class="col-sm-11"}}
@@ -21,24 +30,30 @@
                 <h3>Weekday</h3>
 
                 {{> afQuickField name=this.current.weekdays template="bootstrap3-horizontal" input-col-class="col-sm-11"}}
+                {{/if}}
 
+                {{#if afFieldValueIs name=this.current.scheduleCheck value="interval"}}
+                <h3>Interval</h3>
 
-                <h3>Month</h3>
+                {{> afQuickField name=this.current.interval template="bootstrap3-horizontal" label-class="col-sm-2" 
+                input-col-class="col-sm-8" placeholder="Triggered every X minutes"}}
+                {{/if}}
 
-                {{> afQuickField name=this.current.months template="bootstrap3-horizontal" input-col-class="col-sm-11"}}
-
+                <div class="btn-toolbar mb-3" role="toolbar">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button class="btn btn-danger btn-md autoform-remove-item" data-autoform-field="items">Remove Schedule</button>
+                            </div>
+                </div>
                 <br/>
+                {{/afEachArrayItem}}
+                <div>
+                    <button class="btn btn-primary btn-md autoform-add-item" data-autoform-field="scheduler">Add Schedule</button>
+                </div>
                 <br/>
-
-                {{> afQuickField name=this.current.interval template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
-
-                <br/>
-                <br/>
-
                 <div>
                         <button class="btn btn-primary btn-md pull-right" type="submit">Next</button>
                 </div>
-                {{/afEachArrayItem}}
+                
                 {{/autoForm}}
             </div>
         </div>

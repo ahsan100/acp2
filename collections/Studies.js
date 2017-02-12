@@ -24,7 +24,7 @@ Question = new SimpleSchema({
 
 	question: {
 		type: String,
-		label: "Question"	
+		label: "Question"
 	},
 
 	instructions: {
@@ -225,23 +225,30 @@ Schedule = new SimpleSchema({
     }
 	},
 
-	months: {
-		type: [String],
-		optional: true,
-    label: "Month",
-     autoform: {
-      type: "select-checkbox-inline",
-      label:false,
-          options: function () {
-            return [
-              {label: "January", value: "january"},{label: "February", value: "february"},{label: "March", value: "march"},
-              {label: "April", value: "april"},{label: "May", value: "may"},{label: "June", value: "june"},
-              {label: "July", value: "july"},{label: "August", value: "august"},{label: "September", value: "september"},
-              {label: "October", value: "october"},{label: "November", value: "november"},{label: "December", value: "december"}
-            ];
-        }
+  questionSchedule: {
+    type: [Number],
+    label:"Select schedule for Questions",
+    optional: true,
+    autoform:{
+      label:false
     }
-	},
+  },
+
+	scheduleCheck: {
+    type: String,
+    optional: true,
+    autoform:{
+      type: "select-radio",
+      label:false,
+      options: function () {
+        return [
+          {label: "Interval", value: "interval"},
+          {label: "Time", value: "time"}
+        ];
+    }
+  }
+},
+
 	interval:{
 		type: Number,
 		label: "Interval",
@@ -251,14 +258,6 @@ Schedule = new SimpleSchema({
 });
 
 Studies.attachSchema(new SimpleSchema({
-  study_id: {
-  	type: Number,
-  	label: "Study_id",
-    optional: true,
-    autoform: {
-      type: "hidden"
-    }
-  },
   user_id: {
   	type: String,
   	label: "User_id",
@@ -269,10 +268,12 @@ Studies.attachSchema(new SimpleSchema({
       type: "hidden"
     }
   },
+
   title: {
   	type: String,
   	label: "Title"
   },
+
   description: {
   	type: String,
   	label: "Description"
@@ -281,7 +282,7 @@ Studies.attachSchema(new SimpleSchema({
   questionCheck: {
     type: Boolean,
     label:"Do you want to add Questions to the ESM?",
-  optional: true,
+    optional: true,
     autoform:{
       type: "boolean-radios",
       trueLabel: "Yes",

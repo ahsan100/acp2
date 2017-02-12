@@ -6,6 +6,16 @@ Template.studyConfig.onCreated(function() {
   });
 });
 
+Template.studyConfig.events({
+  'click .btn-primary' : function() {
+    var id = FlowRouter.getParam('id');
+    Studies.update(
+      { _id: id },
+   { $set: { "exported": true } }
+  )
+  }
+});
+
 Template.studyConfig.helpers({
   study: ()=> {
     var id = FlowRouter.getParam('id');
