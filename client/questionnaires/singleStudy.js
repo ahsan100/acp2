@@ -1,7 +1,7 @@
 try{
 Template.singleStudy.events({
-  'click .fa-trash' : function() {
-    Meteor.call('deleteStudy', this._id);
+  'click .btn-danger' : function() {
+    Meteor.call('deleteStudies', this._id);
   }
 });
 
@@ -10,8 +10,6 @@ Template.singleStudy.helpers({
     var id = FlowRouter.getParam('id');
 
     var questionnaire = Studies.findOne({_id: id});
-
-    console.log(questionnaire + "TEST");
 
     return Studies.findOne({_id: id});
   }

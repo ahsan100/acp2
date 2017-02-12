@@ -9,7 +9,7 @@ Template.studyQuestion.onCreated(function() {
 
 AutoForm.addHooks("updateQuestion",{
     onSuccess: function(formType, result) {
-      FlowRouter.go("/study/:id/sensor",{id: FlowRouter.getParam('id')});
+      FlowRouter.go("/study/:id/schedule",{id: FlowRouter.getParam('id')});
     }
 });
 

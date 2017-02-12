@@ -6,6 +6,12 @@ Template.Studies.onCreated(function() {
   });
 });
 
+AutoForm.addHooks("insertStudy",{
+    onSuccess: function(formType, result) {
+      FlowRouter.go("/study/:id/questions",{id: this.docId});
+    }
+});
+
 Template.Studies.helpers({
   studies: ()=> {
     return Studies.find({});

@@ -139,7 +139,7 @@ Sensor = new SimpleSchema({
     }
   },
   frequency: {
-    type: Number,
+    type: String,
     label: "Frequency (in microsends)",
     optional: true
   },
@@ -151,7 +151,7 @@ Sensor = new SimpleSchema({
       type: "select-checkbox",
           options: function () {
             return [
-              {label: "Status Notifications", value: "Notification"},{label: "Status Crashes", value: "crash"},
+              {label: "Status Notifications", value: "notification"},{label: "Status Crashes", value: "crash"},
               {label: "Status keyboard", value: "keyboard"}
             ];
         }
@@ -276,6 +276,18 @@ Studies.attachSchema(new SimpleSchema({
   description: {
   	type: String,
   	label: "Description"
+  },
+
+  questionCheck: {
+    type: Boolean,
+    label:"Do you want to add Questions to the ESM?",
+  optional: true,
+    autoform:{
+      type: "boolean-radios",
+      trueLabel: "Yes",
+      falseLabel: "No",
+      defaultValue: false,
+    }
   },
 
   questions : {
