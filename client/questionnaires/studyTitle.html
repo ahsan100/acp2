@@ -1,31 +1,31 @@
 <template name="studyTitle">
    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-            <div class="col-sm-3">
-                {{> SingleQuestionnaireNav}}
-            </div>
+            {{> SingleQuestionnaireNav}}
 
-                    {{#autoForm collection="Studies" id="updateTitle" type="update" doc=study class="col-sm-9"}}
+            <div class="col-sm-9">
+                <div class="page-header">
+                    <h2>Study</h2>
+                </div>
 
-            	<div class="panel panel-primary">
-                          <div class="panel-heading"><h4>Study</h4></div>
-                          <div class="panel-body">
-
-                  				{{> afQuickField name="title"}}
-
-                  				{{> afQuickField name="description"}}
-
-                      </div>
+                {{#autoForm collection="Studies" id="updateTitle" type="update" doc=study}}
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>Study</h4>
+                        </div>
+                        <div class="panel-body">
+                            {{> afQuickField name="title"}}
+                            {{> afQuickField name="description"}}
+                        </div>
                     </div>
 
                     <div class="panel panel-primary">
-                          <div class="panel-heading"><h4>Study Period</h4></div>
+                          <div class="panel-heading">
+                              <h4>Study Period</h4>
+                          </div>
                           <div class="panel-body">
-                          
                             {{> afQuickField name="start_date"}}
                             {{> afQuickField name="end_date"}}
-                                  
                           </div>
                     </div>
 

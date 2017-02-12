@@ -1,12 +1,11 @@
 <template name="studyConfig">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                {{> SingleQuestionnaireNav}}
-            </div>
+            {{> SingleQuestionnaireNav}}
+
             <div class="col-sm-9">
                 <div class="page-header">
-                    <h3>Study Overview</h3>
+                    <h2>Study Overview</h2>
                 </div>
 
                 <div class="panel panel-info">
@@ -39,8 +38,8 @@
                     <div class="panel-heading"><h4>Questionnaire</h4></div>
                     <div class="panel-body">
                         {{#each study.questions}}
+                            <h3>Question #{{@index}}</h3>
                             <table class="table">
-                                <h3>Question #{{@index}}</h3>
                                 <thead>
                                     <tr>
                                         <th>Label</th>
@@ -68,10 +67,6 @@
                                         <td>Submit text</td>
                                         <td>{{this.submit}}</td>
                                     </tr>
-                                    <!--<tr>-->
-                                        <!--<td>Notification Timeout</td>-->
-                                        <!--<td>{{this.notiTimeout}}</td>-->
-                                    <!--</tr>-->
                                 </tbody>
                             </table>
                         {{/each}}

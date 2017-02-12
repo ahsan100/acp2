@@ -1,12 +1,11 @@
 <template name="studySchedule">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
-                {{> SingleQuestionnaireNav}}
-            </div>
+            {{> SingleQuestionnaireNav}}
+
             <div class="col-sm-9">
                 <div class="page-header">
-                        <h2>Scheduler</h2>
+                    <h2>Scheduler</h2>
                 </div>
 
                 {{#autoForm collection="Studies" id="updateSchedule" type="update" doc=study}}
