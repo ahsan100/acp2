@@ -24,5 +24,38 @@ Template.studyConfig.helpers({
   updateStudyId: function() {
     var id = FlowRouter.getParam('id');
     return Studies.findOne({_id: id});
+  },
+  isIntervatTypeSchedule: function(type) {
+    if (type == "interval") {
+      return true;
+    }
+    else {
+      return false;
+    }
+  },
+  getQuestionType: function(value) {
+    //TODO: user proper query to get the labels over hardcoding.
+    if (value == 1) {
+      return "Free Text";
+    }
+    else if (value == 2) {
+      return "Checkbox";
+    }
+    else if (value == 3) {
+      return "Checkbox";
+    }
+    else if (value == 4) {
+      return "Likeart Scale";
+    }
+    else if (value == 5) {
+      return "Quick Answer";
+    }
+    else if (value == 6) {
+      return "Scale";
+    }
+    else if (value == 7) {
+      return "Numeric";
+    }
   }
 });
+

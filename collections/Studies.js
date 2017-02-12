@@ -135,7 +135,7 @@ Sensor = new SimpleSchema({
       trueLabel: "Enabled",
       falseLabel: "Disabled",
       defaultValue: false,
-      label:false
+      label: false
     }
   },
 
@@ -249,7 +249,7 @@ Schedule = new SimpleSchema({
     optional: true,
     autoform:{
       type: "select-radio",
-      label:false,
+      label: false,
       options: function () {
         return [
           {label: "Interval", value: "interval"},
