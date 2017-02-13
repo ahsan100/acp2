@@ -2,25 +2,51 @@
   {{> Header}}
   <main>
       <div class="container">
-          <h3>Experience Sampling Method</h3>
-          <p>The experience sampling method, also referred to as a daily diary method, or ecological momentary assessment (EMA),
-              is a research methodology that asks participants to stop at certain times and make notes of their experience in real time.
-              The point is that participants record temporal things like their feelings while in the moment (right then, not later; right there,
-              not elsewhere). They can be given a journal with many identical pages. Each page can have a psychometric scale,
-              open-ended questions, or anything else used to assess their condition in that place and time. Online ESM studies can
-              also operate fully automatized. The experience sampling method was developed by Larson and Csikszentmihalyi.</p>
+          <dl class="row">
+              <h3>Introduction</h3>
+              <p class="col-sm-3"><strong>1. Sign-in or make new account.</strong></p>
+              <p class="col-sm-9">Press <strong>Sign in / Join</strong> from the upper left corner. Log in with existing account or create a new account.</p>
 
-          <br>
+              <p class="col-sm-3"><strong>2. Create new study.</strong></p>
+              <p class="col-sm-9">Create new study by pressing <strong class="text-success">Create a new study</strong>.</p>
 
-          <h3>AWARE</h3>
-          <p>AWARE is an Android framework dedicated to instrument, infer, log and share mobile context information,
-              for application developers, researchers and smartphone users. AWARE captures hardware-, software-, and human-based data.
-              The data is then analyzed using AWARE plugins. They transform data into information you can understand.</p>
+              <p class="col-sm-3"><strong>3. Fill the new study information</strong></p>
+              <p class="col-sm-9">Give <strong>Title, Description, Starting</strong> and <strong>Ending dates</strong> of the study.
+                  Press <strong class="text-primary">Next</strong> to continue.</p>
 
-          <h4>AWARE ESM</h4>
-          <p>The ESM sensor adds support for user-provided context by leveraging mobile Experience Sampling Method (ESM).
-              The ESM questionnaires can be triggered by context, time or on-demand, locally or remotely (within your study on AWARE’s dashboard).
-              Although user-subjective, this sensor allows crowdsourcing information that is challenging to instrument with sensors.</p>
+              <p class="col-sm-12"><strong class="text-uppercase text-warning">Ongoing studies are saved automatically and they can be accessed from the
+                  Studies-page.</strong></p>
+
+              <p class="col-sm-3"><strong>4. Define question(s)</strong></p>
+              <p class="col-sm-9">Give <strong>Title, Instructions, Expiration threshold</strong> and select <strong>Question type</strong>.
+                  Questions can be added by pressing <strong class="text-primary">Add Questions</strong>. Questions can be deleted by
+                  pressing <strong class="text-danger">Remove question</strong>. Press <strong class="text-primary">Next</strong> to continue.</p>
+
+              <p class="col-sm-3"><strong>5. Scheduler questions.</strong></p>
+              <p class="col-sm-9">Select questions which you want to schedule and specify the scheduler. Scheduler for questions can be <strong>Interval</strong>
+                  or <strong>Time</strong>. With <strong>Interval</strong> question triggers after every given minutes, and with <strong>Time</strong> question can
+                  be specified to be triggered in certain hours and weekdays. Schedules can be added by pressing <strong class="text-primary">Add schedule</strong>,
+                  and schedules can be deleted by pressing <strong class="text-danger">Remove Schedule</strong>.
+                  <strong class="text-uppercase text-warning"> remember to schedule every questions!</strong> Press <strong class="text-primary">Next</strong> to continue.</p>
+
+              <p class="col-sm-3"><strong>6. Enable/Disable sensors.</strong></p>
+              <p class="col-sm-9">Enable sensors for you study by selecting <strong>Enable</strong> or disable them by pressing <strong>Disable</strong>.
+              If sensors are enabled, enable those sensors you need in your study. Give <strong>Frequency</strong> and / or select <strong>Options</strong> for each sensor if needed.
+              <strong>Frequency</strong> can be left to use default value. Press <strong class="text-primary">Next</strong> to continue.</p>
+
+              <p class="col-sm-3"><strong>7. Check the overview of the study.</strong></p>
+              <p class="col-sm-9">Check the study information, questions, schedulers and sensors. <strong class="text-uppercase">Make sure everything are correct! When the study is submitted
+              it cannot be anymore modified.</strong> Press <strong class="text-primary">Submit</strong> to continue.</p>
+
+              <p class="col-sm-3"><strong>8. Share QR-code</strong></p>
+              <p class="col-sm-9">Share the QR-code for study participants, who can join into your study with AWARE? TODO</p>
+
+              <p class="col-sm-3"><strong>10.View exported, modify unfinished or make new studies.</strong></p>
+              <p class="col-sm-9">Modify your unfinished studies by pressing <strong class="text-primary">View details</strong>. View the details of your exported study by pressing
+                  <strong class="text-primary">View overview</strong>. The exported and unfinished studies can be remove by pressing
+                  <strong class="text-danger">Remove study</strong>. You can make new <strong class="text-success">Create a new study</strong>.</p>
+
+          </dl>
       </div>
   </main>
   {{> Footer}}
