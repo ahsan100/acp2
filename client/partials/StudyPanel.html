@@ -4,13 +4,15 @@
             <h1>User Panel</h1>
         </div>
 
-        <div class="row">
-            <!--<h1>Create a new study</h1>-->
-            <a href="/study" class="btn btn-success" role="button">Create a new study</a>
+        <div class="col-sm-12">
+            <div class="row">
+                <!--<h1>Create a new study</h1>-->
+                <a href="/study" class="btn btn-success" role="button">Create a new study</a>
+            </div>
         </div>
 
         <div class="col-sm-6">
-            <h1>Recent studies</h1>
+            <h1>Exported studies</h1>
             {{#if Template.subscriptionsReady}}
                 <table class="table table-striped">
                     <tbody>
@@ -18,6 +20,7 @@
                         {{#if this.exported}}
                         <tr>
                             {{> singleStudy}}
+                            <a class="btn btn-primary" href="/study/{{_id}}/overview">View overview</a>
                         </tr>
                         {{/if}}
                     {{/each}}
@@ -36,6 +39,7 @@
                         {{#unless this.exported}}
                         <tr>
                             {{> singleStudy}}
+                            <a class="btn btn-primary" href="/study/{{_id}}/questions">View Details</a>
                         </tr>
                         {{/unless}}
                     {{/each}}

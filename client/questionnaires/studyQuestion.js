@@ -11,12 +11,7 @@ AutoForm.addHooks("updateQuestion",{
     onSuccess: function(formType, result) {
       var id = FlowRouter.getParam('id');
       study = Studies.findOne({_id: id});
-      if(!study.questionCheck){
-          FlowRouter.go("/study/:id/sensor",{id: FlowRouter.getParam('id')});
-      }
-      else {
-        FlowRouter.go("/study/:id/schedule",{id: FlowRouter.getParam('id')});
-      }
+      FlowRouter.go("/study/:id/schedule",{id: FlowRouter.getParam('id')});
     }
 });
 

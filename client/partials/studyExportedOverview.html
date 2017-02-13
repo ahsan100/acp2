@@ -1,0 +1,203 @@
+<template name="studyExportedOverview">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-9">
+                <div class="page-header">
+                    <h2>Overview</h2>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Study</h4></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>Title</td>
+                                <td>{{study.title}}</td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>{{study.description}}</td>
+                            </tr>
+                            <tr>
+                                <td>Start Date</td>
+                                <td>{{study.start_date}}</td>
+                            </tr>
+                            <tr>
+                                <td>End Date</td>
+                                <td>{{study.end_date}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Questionnaire</h4></div>
+                    <div class="panel-body">
+                        {{#each study.questions}}
+                            <h3>Question #{{@index}}</h3>
+                            <table class="table">
+
+                                <tbody>
+                                <tr>
+                                    <th>Attached question</th>
+                                    <th>{{this.question}}</th>
+                                </tr>
+                                <tr>
+                                    <td>Instructions</td>
+                                    <td>{{this.instructions}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Timeout</td>
+                                    <td>{{this.timeout}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>{{getQuestionType this.type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Submit text</td>
+                                    <td>{{this.submit}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <hr/>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Schedule</h4></div>
+                    <div class="panel-body">
+                        {{#each study.scheduler}}
+                            <h3>Scheduler #{{@index}}</h3>
+
+                            {{#if isIntervatTypeSchedule this.scheduleCheck}}
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Interval</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Attached questions</td>
+                                        <td>
+                                            {{#each this.questionSchedule}}
+                                                {{this}}
+                                            {{/each}}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            {{/if}}
+                            {{#unless isIntervatTypeSchedule this.scheduleCheck}}
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Questions</td>
+                                        <td>
+                                            {{#each this.questionSchedule}}
+                                                {{this}}
+                                            {{/each}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hours</td>
+                                        <td>
+                                            {{#each this.hours}}
+                                                {{this}}
+                                            {{/each}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weekdays</td>
+                                        <td>
+                                            {{#each this.weekdays}}
+                                                {{this}}
+                                            {{/each}}
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>Months</td>
+                                        <td>
+                                            {{#each this.months}}
+                                        {{this}}
+                                    {{/each}}
+                                        </td>
+                                    </tr>-->
+                                    </tbody>
+                                </table>
+                            {{/unless}}
+                            <hr/>
+                        {{/each}}
+
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Sensors</h4></div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Frequency (ms)</th>
+                                <th>Optional</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each study.sensor}}
+                                {{#if this.sensorActive}}
+                                    <tr>
+                                        <td>{{this.sensorType}}</td>
+                                        <td>
+                                            {{#if this.frequency}}
+                                                {{this.frequency}}
+                                            {{else}}
+                                                N/A
+                                            {{/if}}
+                                        </td>
+                                        <td>
+                                            {{#unless this.frequency}}
+                                                {{#if this.application}}
+                                                    {{#each this.application}}
+                                                        {{this}}<br/>
+                                                    {{/each}}
+                                                {{/if}}
+                                                {{#if this.communication}}
+                                                    {{#each this.communication}}
+                                                        {{this}}<br/>
+                                                    {{/each}}
+                                                {{/if}}
+                                                {{#if this.network}}
+                                                    {{#each this.network}}
+                                                        {{this}}<br/>
+                                                    {{/each}}
+                                                {{/if}}
+                                            {{/unless}}
+                                        </td>
+                                    </tr>
+                                {{/if}}
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="panel-heading text-center"><h2>QR-code for the study.</h2></div>
+                <div class="text-center" id="qrcode"></div>
+
+            </div>
+        </div>
+    </div>
+</template>
