@@ -47,7 +47,7 @@
 
                                 <tbody>
                                     <tr>
-                                        <th>Attached question</th>
+                                        <th>Question</th>
                                         <th>{{this.question}}</th>
                                     </tr>
                                     <tr>
@@ -59,13 +59,87 @@
                                         <td>{{this.timeout}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Type</td>
-                                        <td>{{getQuestionType this.type}}</td>
-                                    </tr>
-                                    <tr>
                                         <td>Submit text</td>
                                         <td>{{this.submit}}</td>
                                     </tr>
+                                    <tr>
+                                        <td>Type</td>
+                                        <td>{{getQuestionType this.type}}</td>
+                                    </tr>
+                                    {{#if equals this.type 2}}
+                                        <tr>
+                                            <td>Radio options</td>
+                                            <td>
+                                                {{#each this.options}}
+                                                    {{this.option}}<br/>
+                                                {{/each}}
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                    {{#if equals this.type 3}}
+                                        <tr>
+                                            <td>Checkbox Options</td>
+                                            <td>
+                                                {{#each this.options}}
+                                                    {{this.option}}<br/>
+                                                {{/each}}
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                    {{#if equals this.type 4}}
+                                        <tr>
+                                            <td>Likeart Scale labels</td>
+                                            <td>{{this.minLabel}} - {{this.maxLabel}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Likeart Scale range</td>
+                                            <td>{{this.minValue}} - {{this.maxValue}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Likeart Scale step size</td>
+                                            <td>{{this.stepSize}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Likeart Scale default value</td>
+                                            <td>{{this.scaleStart}}
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                    {{#if equals this.type 5}}
+                                        <tr>
+                                            <td>Quick Answer Options</td>
+                                            <td>
+                                                {{#each this.options}}
+                                                    {{this.option}}<br/>
+                                                {{/each}}
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                    {{#if equals this.type 6}}
+                                        <tr>
+                                            <td>Scale labels</td>
+                                            <td>{{this.minLabel}} - {{this.maxLabel}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Scale range</td>
+                                            <td>{{this.minValue}} - {{this.maxValue}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Scale step size</td>
+                                            <td>{{this.stepSize}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Scale default value</td>
+                                            <td>{{this.scaleStart}}
+                                            </td>
+                                        </tr>
+                                    {{/if}}
                                 </tbody>
                             </table>
                             <hr/>

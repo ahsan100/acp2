@@ -36,13 +36,16 @@ Template.studyConfig.helpers({
   getIndexWithOffset: function(value) {
     return value + 1;
   },
+  equals: function(a, b) {
+    return (a == b);
+  },
   getQuestionType: function(value) {
     //TODO: user proper query to get the labels over hardcoding.
     if (value == 1) {
       return "Free Text";
     }
     else if (value == 2) {
-      return "Checkbox";
+      return "Radio";
     }
     else if (value == 3) {
       return "Checkbox";
