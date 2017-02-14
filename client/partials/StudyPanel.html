@@ -4,11 +4,8 @@
             <h1>User Panel</h1>
         </div>
 
-        <div class="col-sm-12">
-            <div class="row">
-                <!--<h1>Create a new study</h1>-->
-                <a href="/study" class="btn btn-success" role="button">Create a new study</a>
-            </div>
+        <div class="row">
+            <a href="/study" class="btn btn-success" role="button">Create a new study</a>
         </div>
 
         <div class="col-sm-6">
@@ -20,7 +17,6 @@
                         {{#if this.exported}}
                         <tr>
                             {{> singleStudy}}
-                            <a class="btn btn-primary" href="/study/{{_id}}/overview">View Overview</a>
                         </tr>
                         {{/if}}
                     {{/each}}
@@ -39,7 +35,6 @@
                         {{#unless this.exported}}
                         <tr>
                             {{> singleStudy}}
-                            <a class="btn btn-primary" href="/study/{{_id}}/questions">View Details</a>
                         </tr>
                         {{/unless}}
                     {{/each}}

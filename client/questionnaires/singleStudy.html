@@ -7,11 +7,13 @@
         <p class="meta">Created {{formatDate createdAt}}.</p>
 
         {{nrStudies}}
-        <!-- <p>
-          {{#each questions}}
-            <span class="ingredient">{{name}} - {{type}}</span>
-          {{/each}}
-        </p> -->
-        <button class="btn btn-danger btn-md autoform-remove-item pull-right" data-autoform-field="items">Remove Study</button>
+
+        {{#if exported}}
+            <a class="btn btn-primary" href="/study/{{_id}}/overview">View Overview</a>
+        {{else}}
+            <a class="btn btn-primary" href="/study/{{_id}}/questions">View Details</a>
+            <button class="btn btn-danger btn-md autoform-remove-item pull-right" data-autoform-field="items">Remove Study</button>
+        {{/if}}
+
     </article>
 </template>
