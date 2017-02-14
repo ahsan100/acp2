@@ -1,7 +1,11 @@
 <template name="studyConfig">
     <div class="container">
         <div class="row">
-            {{> SingleQuestionnaireNav}}
+            {{#if Template.subscriptionsReady}}
+                {{#unless study.exported}}
+                    {{> SingleQuestionnaireNav}}
+                {{/unless}}
+            {{/if}}
 
             <div class="col-sm-9">
                 <div class="page-header">
@@ -38,7 +42,7 @@
                     <div class="panel-heading"><h4>Questionnaire</h4></div>
                     <div class="panel-body">
                         {{#each study.questions}}
-                            <h3>Question #{{@index}}</h3>
+                            <h3>Question #{{getIndexWithOffset @index}}</h3>
                             <table class="table">
 
                                 <tbody>
@@ -73,7 +77,7 @@
                     <div class="panel-heading"><h4>Schedule</h4></div>
                     <div class="panel-body">
                         {{#each study.scheduler}}
-                            <h3>Scheduler #{{@index}}</h3>
+                            <h3>Scheduler #{{getIndexWithOffset @index}}</h3>
 
                             {{#if isIntervatTypeSchedule this.scheduleCheck}}
                                 <table class="table">
@@ -195,10 +199,11 @@
                     </div>
                 </div>
 
-                <div>
-                    <a href="/study/{{study._id}}/export" class="btn btn-primary btn-md pull-right" type="button">Submit</a>
-                </div>
-    
+                {{#unless study.exported}}
+                    <div>
+                        <a href="/study/{{study._id}}/export" class="btn btn-primary btn-md pull-right" type="button">Submit</a>
+                    </div>
+                {{/unless}}
             </div>
         </div>
     </div>

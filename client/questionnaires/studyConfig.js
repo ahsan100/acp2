@@ -33,6 +33,9 @@ Template.studyConfig.helpers({
       return false;
     }
   },
+  getIndexWithOffset: function(value) {
+    return value + 1;
+  },
   getQuestionType: function(value) {
     //TODO: user proper query to get the labels over hardcoding.
     if (value == 1) {
