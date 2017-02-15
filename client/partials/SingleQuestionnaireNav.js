@@ -10,5 +10,8 @@ Template.SingleQuestionnaireNav.helpers({
   study: ()=> {
     var id = FlowRouter.getParam('id');
     return Studies.findOne({_id: id});
+  },
+  biggerOrEqual: function(a, b) {
+    return (a >= b);
   }
 });
