@@ -5,9 +5,22 @@ Studies.allow({
   insert: function(userId, doc) {
     return !!userId;
   },
-  update: function(userId, doc) {
-    return !!userId;
+  update: function(userId, doc, fields, modifier) {
+    // Check that author_id matches user_id
+    if (userId == doc.user_id && !doc.exported) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
+});
+
+Studies.deny({
+  update: function(userId, doc, fields, modifier) {
+    // deny access to modify when query includes fields
+    return _.intersection(fields, ['createdAt', 'user_id']).length > 0;
+  },
 });
 
 // For Checkbox, Radio & Quick Answer Options
@@ -377,7 +390,25 @@ Studies.attachSchema(new SimpleSchema({
 
 Meteor.methods({
   deleteStudies: function(id) {
-    Studies.remove(id);
+    // Check that user is logged
+    if (this.userId) {
+      // Check id format
+      check(id, String);
+
+      // Find study to be removed
+      study = Studies.findOne({_id: id});
+
+      // Check that author matches with login
+      if (study.user_id == this.userId && !study.exported) {
+        Studies.remove(id);
+      }
+      else {
+        throw new Meteor.Error('not-authorized');
+      }
+    }
+    else {
+      throw new Meteor.Error('not-authorized');
+    }
   }
 });
 

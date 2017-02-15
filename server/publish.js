@@ -9,18 +9,18 @@ try{
 
     // Query
     cursor = Studies.find({_id: id});
-    console.log("3logged:" + this.userId);
 
     // Silly cursor traverse to check if user_id matches author_id
     var author;
     cursor.forEach(function(doc){
       author = doc.user_id;
     });
-    
+
     if (author == this.userId) {
       return cursor;
     }
     else {
+      // kill
       return;
     }
   });
