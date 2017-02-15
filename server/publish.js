@@ -1,21 +1,29 @@
 try{
-Meteor.publish('studies', function(){
-  return Studies.find({user_id: this.userId});
-});
+  Meteor.publish('studies', function(){
+    return Studies.find({user_id: this.userId});
+  });
 
-Meteor.publish('sensors', function(){
-  return Sensors.find();
-});
+  Meteor.publish('singleStudy', function(id){
+    // Confirm that id is String
+    check(id, String);
 
-Meteor.publish('schedule', function(){
-  //TODO
-  return Studies.find({author: this.userId})
-});
+    // Query
+    cursor = Studies.find({_id: id});
+    console.log("3logged:" + this.userId);
 
-Meteor.publish('singleStudy', function(id){
-  check(id, String);
-  return Studies.find({_id: id});
-});
+    // Silly cursor traverse to check if user_id matches author_id
+    var author;
+    cursor.forEach(function(doc){
+      author = doc.user_id;
+    });
+    
+    if (author == this.userId) {
+      return cursor;
+    }
+    else {
+      return;
+    }
+  });
 }
 catch(err){
   console.log(err);
