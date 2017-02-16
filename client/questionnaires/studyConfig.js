@@ -39,6 +39,33 @@ Template.studyConfig.helpers({
   equals: function(a, b) {
     return (a == b);
   },
+	formatTime: function(value) {
+		var zero = "";
+		if (value < 10 && value > 0) {
+			zero = "0";
+		}
+		if (value == 0) {
+			value = "24";
+		}
+		time = zero + value + ":00";
+		return time;
+	},
+	formatTimeUS: function(value) {
+		var format = "am";
+		var zero = "";
+		if (value >= 13) {
+			value = (value % 13) + 1;
+			format = "pm";
+		}
+		if (value < 10) {
+			zero = "0";
+		}
+		time = zero + value + ":00 " + format;
+		return time;
+	},
+	capitalize: function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+	},
   getQuestionType: function(value) {
     //TODO: user proper query to get the labels over hardcoding.
     if (value == 1) {

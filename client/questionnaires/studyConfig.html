@@ -44,7 +44,6 @@
                         {{#each study.questions}}
                             <h3>Question #{{getIndexWithOffset @index}}</h3>
                             <table class="table">
-
                                 <tbody>
                                     <tr>
                                         <th>Question</th>
@@ -58,10 +57,12 @@
                                         <td>Timeout</td>
                                         <td>{{this.timeout}}</td>
                                     </tr>
+                                    {{#unless equals this.type 5}}
                                     <tr>
                                         <td>Submit text</td>
                                         <td>{{this.submit}}</td>
                                     </tr>
+                                    {{/unless}}
                                     <tr>
                                         <td>Type</td>
                                         <td>{{getQuestionType this.type}}</td>
@@ -152,71 +153,71 @@
                     <div class="panel-body">
                         {{#each study.scheduler}}
                             <h3>Scheduler #{{getIndexWithOffset @index}}</h3>
+                            <table class="table">
+                              <thead>
+                              <tr>
+                                <th>Type</th>
+                                <th>Value</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Questions</td>
+                                  <td>
+                                    {{#each this.questionSchedule}}
+                                      {{#let schedulerIdx=this}}
+                                        {{#each study.questions}}
+                                          {{#if equals schedulerIdx @index}}
+                                            {{this.question}}<br/>
+                                          {{/if}}
+                                        {{/each}}
+                                      {{/let}}
+                                    {{/each}}
+                                  </td>
+                                </tr>
 
-                            {{#if isIntervatTypeSchedule this.scheduleCheck}}
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>Interval</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Attached questions</td>
-                                        <td>
-                                            {{#each this.questionSchedule}}
-                                                {{this}}
-                                            {{/each}}
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            {{/if}}
-                            {{#unless isIntervatTypeSchedule this.scheduleCheck}}
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>Time</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Questions</td>
-                                        <td>
-                                            {{#each this.questionSchedule}}
-                                                {{this}}
-                                            {{/each}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hours</td>
-                                        <td>
-                                            {{#each this.hours}}
-                                                {{this}}
-                                            {{/each}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Weekdays</td>
-                                        <td>
-                                            {{#each this.weekdays}}
-                                                {{this}}
-                                            {{/each}}
-                                        </td>
-                                    </tr>
-                                   <!-- <tr>
-                                        <td>Months</td>
-                                        <td>
-                                            {{#each this.months}}
-                                                {{this}}
-                                            {{/each}}
-                                        </td>
-                                    </tr>-->
-                                    </tbody>
-                                </table>
-                            {{/unless}}
+                                {{#if isIntervatTypeSchedule this.scheduleCheck}}
+                                <tr>
+                                  <td>Interval</td>
+                                  <td>
+                                    {{#if this.interval}}
+                                      {{this.interval}}
+                                    {{else}}
+                                      N/A
+                                    {{/if}}
+                                  </td>
+                                </tr>
+                                {{/if}}
+
+                                {{#unless isIntervatTypeSchedule this.scheduleCheck}}
+                                <tr>
+                                  <td>Hours</td>
+                                  <td>
+                                    {{#if this.hours}}
+                                      {{#each this.hours}}
+                                        {{formatTimeUS this}}<br/>
+                                      {{/each}}
+                                    {{else}}
+                                      N/A
+                                    {{/if}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Weekdays</td>
+                                  <td>
+                                    {{#if this.weekdays}}
+                                      {{#each this.weekdays}}
+                                        {{capitalize this}}<br/>
+                                      {{/each}}
+                                    {{else}}
+                                      N/A
+                                    {{/if}}
+                                  </td>
+                                </tr>
+                                {{/unless}}
+
+                              </tbody>
+                            </table>
                             <hr/>
                         {{/each}}
 
@@ -255,12 +256,12 @@
                                                 {{/if}}
                                                 {{#if this.communication}}
                                                     {{#each this.communication}}
-                                                        {{this}}<br/>
+                                                        {{capitalize this}}<br/>
                                                     {{/each}}
                                                 {{/if}}
                                                 {{#if this.network}}
                                                     {{#each this.network}}
-                                                        {{this}}<br/>
+                                                        {{capitalize this}}<br/>
                                                     {{/each}}
                                                 {{/if}}
                                           {{/unless}}
