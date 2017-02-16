@@ -16,12 +16,12 @@ Studies.allow({
   }
 });
 
-Studies.deny({
+/*Studies.deny({
   update: function(userId, doc, fields, modifier) {
     // deny access to modify when query includes fields
     return _.intersection(fields, ['createdAt', 'user_id']).length > 0;
   },
-});
+});*/
 
 // For Checkbox, Radio & Quick Answer Options
 Option = new SimpleSchema({
