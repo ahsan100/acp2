@@ -9,7 +9,9 @@
               <ul class="nav navbar-nav">
                   <li><a href="/">Home</a></li>
                   <li><a href="/about">Introduction</a></li>
+                  {{#if currentUser }}
                   <li><a href="/panel">Studies</a></li>
+                  {{/if}}
                   <li><a href="http://www.awareframework.com/">AWARE</a></li>
               </ul>
 
