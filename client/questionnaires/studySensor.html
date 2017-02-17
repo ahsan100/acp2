@@ -15,7 +15,7 @@
                     {{#if afFieldValueIs name="sensorCheck" value=true}}
                     <div class="row container">
                         <div class="col-sm-3">
-                            a{{> afQuickField name="sensor.0.sensorType" value="Accelerometer"}}y
+                            {{> afQuickField name="sensor.0.sensorType" value="Accelerometer"}}
                             <h3>Accelerator</h3>
                             {{> afQuickField name="sensor.0.sensorActive" options="allowed" noselect=true}}
                             {{#if afFieldValueIs name="sensor.0.sensorActive" value=true}}

@@ -227,50 +227,61 @@
                 <div class="panel panel-info    ">
                     <div class="panel-heading"><h4>Sensors</h4></div>
                     <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Type</th>
-                                <th>Frequency (ms)</th>
-                                <th>Optional</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each study.sensor}}
-                                {{#if this.sensorActive}}
+                        {{#if study.sensorCheck}}
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>{{this.sensorType}}</td>
-                                        <td>
-                                            {{#if this.frequency}}
-                                                {{this.frequency}}
-                                            {{else}}
-                                                N/A
-                                            {{/if}}
-                                        </td>
-                                        <td>
-                                            {{#unless this.frequency}}
-                                                {{#if this.application}}
-                                                    {{#each this.application}}
-                                                        {{this}}<br/>
-                                                    {{/each}}
-                                                {{/if}}
-                                                {{#if this.communication}}
-                                                    {{#each this.communication}}
-                                                        {{capitalize this}}<br/>
-                                                    {{/each}}
-                                                {{/if}}
-                                                {{#if this.network}}
-                                                    {{#each this.network}}
-                                                        {{capitalize this}}<br/>
-                                                    {{/each}}
-                                                {{/if}}
-                                          {{/unless}}
-                                        </td>
+                                        <th>Type</th>
+                                        <th>Frequency (ms)</th>
+                                        <th>Optional</th>
                                     </tr>
-                                {{/if}}
-                            {{/each}}
-                        </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                    {{#each study.sensor}}
+                                        {{#if this.sensorActive}}
+                                            <tr>
+                                                <td>{{this.sensorType}}</td>
+                                                <td>
+                                                    {{#if this.frequency}}
+                                                        {{this.frequency}}
+                                                    {{else}}
+                                                        N/A
+                                                    {{/if}}
+                                                </td>
+                                                <td>
+                                                    {{#unless this.frequency}}
+                                                        {{#if this.application}}
+                                                            {{#each this.application}}
+                                                                {{this}}<br/>
+                                                            {{/each}}
+                                                        {{/if}}
+                                                        {{#if this.communication}}
+                                                            {{#each this.communication}}
+                                                                {{capitalize this}}<br/>
+                                                            {{/each}}
+                                                        {{/if}}
+                                                        {{#if this.network}}
+                                                            {{#each this.network}}
+                                                                {{capitalize this}}<br/>
+                                                            {{/each}}
+                                                        {{/if}}
+                                                  {{/unless}}
+                                                </td>
+                                            </tr>
+                                        {{/if}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        {{else}}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sensors</th>
+                                        <th>Disabled</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        {{/if}}
                     </div>
                 </div>
 
