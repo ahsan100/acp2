@@ -16,7 +16,7 @@
                     <div class="row container">
                         <div class="col-sm-3">
                             {{> afQuickField name="sensor.0.sensorType" value="Accelerometer"}}
-                            <h3>Accelerator</h3>
+                            <h3>Accelerometer</h3>
                             {{> afQuickField name="sensor.0.sensorActive" options="allowed" noselect=true}}
                             {{#if afFieldValueIs name="sensor.0.sensorActive" value=true}}
                                 {{> afQuickField name="sensor.0.frequency" placeholder="200000 (normal), 0 (fastest)"}}

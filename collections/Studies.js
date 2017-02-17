@@ -344,7 +344,7 @@ Studies.attachSchema(new SimpleSchema({
 
   start_date: {
     type: Date,
-    label: "Start_date",
+    label: "Start Date",
     optional: true,
     autoform: {
       type: "bootstrap-datepicker",
@@ -356,7 +356,7 @@ Studies.attachSchema(new SimpleSchema({
 
   end_date: {
     type: Date,
-    label: "End_date",
+    label: "End Date",
     optional: true,
     autoform: {
       type: "bootstrap-datepicker",
